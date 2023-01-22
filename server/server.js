@@ -1,5 +1,6 @@
 const express = require("express");
 const path = require("path");
+const { ApolloServer } = require("apollo-server-express");
 const { typeDefs, resolvers } = require("./schemas");
 const db = require("./config/connection");
 const routes = require("./routes");
@@ -33,6 +34,3 @@ db.once("open", () => {
     console.log(`Use GraphQL at http://localhost:${PORT}${server.graphqlPath}`);
   });
 });
-
-// Call the async function to start the server
-startApolloServer(typeDefs, resolvers);
